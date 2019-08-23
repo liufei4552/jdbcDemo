@@ -118,13 +118,12 @@ public class StudentDaoImpl implements StudentDao {
 			con = DBUtils.getConnection();
 			String sql = "insert into student values(?,?,?,?)";
 			ps = con.prepareStatement(sql);
-			ps.setInt(0, stu.getId());
-			ps.setString(1, stu.getName());
-			ps.setString(2, stu.getPwd());
-			ps.setInt(3, stu.getCid());
+			ps.setInt(1, stu.getId());
+			ps.setString(2, stu.getName());
+			ps.setString(3, stu.getPwd());
+			ps.setInt(4, stu.getCid());
 			ps.addBatch();
 			res = ps.executeUpdate();
-			con.commit();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
